@@ -3,7 +3,7 @@
 from langchain.prompts import PromptTemplate
 from langchain.chains.summarize import load_summarize_chain
 from langchain.text_splitter import RecursiveCharacterTextSplitter
-import llm_definitions
+import utilities.llm_definitions as llm_definitions
 
 def summerize(objective, content):
     """Generate a summary of the content based on the objective using LLM
@@ -15,6 +15,9 @@ def summerize(objective, content):
     Returns:
         str: The summary of the content based on the objective.
     """
+    if len(content) < 10000:
+        return content
+
     llm = llm_definitions.llm_ollama
 
     # Break the text into small chunks
@@ -28,12 +31,12 @@ def summerize(objective, content):
     # Generate the Prompt Template that will be used in the chain
     map_prompt = """
     Write a summary of the following text for {objective}:
-    "{input_documents}"
+    "{text}"
     SUMMARY:
     """
     prompt_template = PromptTemplate(
         template=map_prompt,
-        input_variables=["input_documents", "objective"]
+        input_variables=["text", "objective"]
         )
 
     # Create Summary Chain
