@@ -1,0 +1,4 @@
+# Research Bot
+
+- LangChain
+- Ollama
