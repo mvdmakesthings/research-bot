@@ -4,8 +4,6 @@
 
 A research bot using locally hosted LLMs, using LangChain and Ollama.
 
-- Start by running `ollama run mistral`
-
 ---
 
 ## Getting Started
@@ -23,6 +21,6 @@ A research bot using locally hosted LLMs, using LangChain and Ollama.
 - [Ollama](https://github.com/jmorganca/ollama)
 - [Streamlit](https://docs.streamlit.io/library/api-reference)
 
-Helpful Resources
+Special Thanks & Resources
 - [https://www.youtube.com/watch?v=lG7Uxts9SXs]()
 - [https://www.youtube.com/watch?v=ogQUlS7CkYA]()
