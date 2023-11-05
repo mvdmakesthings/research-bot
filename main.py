@@ -1,11 +1,16 @@
 import langchain_helper as lch
 import streamlit as st
+import utilities.search as search
+import utilities.scrape as scrape
+from PIL import Image
 
-st.title("Pets name generator")
+st.title("Alfred v1.0")
 
-animal_type = st.sidebar.selectbox("What is your pet?", ("Cow", "Cat", "Hen", "Dog", "Hamster", "Llama"))
-pet_color = st.sidebar.text_input(label=f"What color is your {animal_type}?", max_chars=15)
+header_image = Image.open('./resources/img.png')
+st.image(header_image, caption='A helpful monster that only thinks about research')
+website = st.text_input("Website to Scrape")
 
-if pet_color:
-    response = lch.generate_pet_name(animal_type, pet_color)
-    st.text(response['pet_name'])
+if website:
+    st.write("Scraping website: ", website)
+    site = scrape.scrape_website("Pow", website)
+    st.info(site)
