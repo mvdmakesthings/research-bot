@@ -1,5 +1,7 @@
 # Research Bot
 
+![](./resources/img.png)
+
 A research bot using locally hosted LLMs, using Python and LangChain.
 
 - Start by running `ollama run mistral`
