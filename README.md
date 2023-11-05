@@ -7,6 +7,9 @@ A research bot using locally hosted LLMs, using LangChain and Ollama.
 ---
 
 ## Getting Started
+- Setup .env file with the following keys:
+    - SERPER_API_KEY
+    - BROWSERLESS_API_KEY
 - Install [Ollama](https://ollama.ai/) and begin running your desired model:
     ```sh 
     ollama run mistral
