@@ -1,7 +1,9 @@
-from dotenv import load_dotenv
-from enum import Enum
-from langchain.utilities import GoogleSerperAPIWrapper
+"""Module providing a function search query Google"""
+
 import pprint
+from enum import Enum
+from dotenv import load_dotenv
+from langchain.utilities import GoogleSerperAPIWrapper
 
 load_dotenv()
 
@@ -21,7 +23,8 @@ def run_search(query: str, search_type: SearchType = SearchType.SEARCH):
 
     Args:
         query (str): The query to search for
-        search_type (str, optional): ["images","news", "places"] The Google Serper API can return different results depending on the search type. Defaults to None.
+        search_type (str, optional): ["images","news", "places"] The Google Serper API 
+        can return different results depending on the search type. Defaults to None.
     """
     search = GoogleSerperAPIWrapper(type=search_type.value)
     results = search.results(query)

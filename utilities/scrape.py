@@ -1,3 +1,4 @@
+"""Module providing a function to scrape a website page"""
 
 import os
 import json
@@ -7,6 +8,15 @@ from bs4 import BeautifulSoup
 browserless_api_key = os.getenv("BROWSERLESS_API_KEY")
 
 def scrape_website(objective: str, url: str):
+    """Scrape a website given it's objective and url
+
+    Args:
+        objective (str): The LLM query to be run against the content of the page.
+        url (str): The URL of the website to scrape
+
+    Returns:
+        str: Plain Text of the website.
+    """    
     print("Scraping website: ", url)
     
     headers = {
@@ -31,10 +41,6 @@ def scrape_website(objective: str, url: str):
         
         print("Website Content: ", text)
         
-        if len(text) > 10000:
-            output = summary(objective, text)
-            return output
-        else:
-            return text
+        return text
     else:
         print(f"HTTP request failed with status code {response.status_code}")
